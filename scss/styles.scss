@@ -1,0 +1,97 @@
+/** VOS $VARIABLES Sass ici avant l'importation**/
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
+/*** Importation de Boostrap **/
+@import "partials/bootstrap";
+
+/**Variables SASS**/
+$primary:#4276B1;
+$secondary:#BAC5C6;
+$tertiary:#2EA3DA;
+$principal:#F4F9F8;
+$dark:#020410;
+
+$font-color:#333333;
+
+$police-texte-courant : "Roboto Condensed", sans-serif;
+$police-titres : "Source Sans 3";
+
+/*** Début des styles personnalisés ***/
+body{
+    font-family: $police-texte-courant;
+	background-color: $principal;
+    font-weight: 300;
+	color: $font-color;
+}
+
+.navbar-style-combine {
+    @extend .bg-body-tertiary;
+    @extend .d-flex;
+    @extend .flex-wrap;
+    @extend .align-items-center;
+    @extend .justify-content-center;
+    @extend .justify-content-md-between;
+}
+
+.btn-style-combine {
+    @extend .badge;
+    @extend .text-bg-danger;
+    @extend .text-decoration-none;
+    @extend .p-2;
+}
+
+.heroes-style-combine {
+    @extend .p-5;
+    @extend .text-center;
+    @extend .rounded-3;
+}
+
+/*Style de l'image hero*/
+.heroes-bg-image {
+    background-image: url('../images/hero.jpg');
+    height: 500px;
+    position: relative;
+
+    .hero-content {
+        background-color: rgba(100, 193, 243, 0.6);
+        width: 50%;
+        height: 17%;
+        padding: 1rem;
+        bottom: 30px;
+        left: 30px; 
+        border: 2px solid $dark;
+        position: absolute;
+
+        .hero-text {
+            color: $dark;
+            h2 {
+                font-weight: bolder;
+                font-size: xx-large;
+            }
+        }
+    }
+}
+
+/*Style pour les cards*/
+.card-question {
+    @extend .d-flex;
+    @extend .justify-content-center;
+}
+
+/*Style pour le footer*/
+.style-footer-combine{
+    @extend .mt-auto;
+    @extend .py-3;
+    @extend .bg-dark-subtle;
+    @extend .mb-2;
+}
+
+.jumbotron {
+    @extend .p-4;
+    @extend .bg-secondary;
+    @extend .text-white;
+    @extend .rounded; 
+}
+
+

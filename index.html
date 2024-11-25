@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Pour s'assurer d'un affichage correct sur mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles de Boostrap + Styles personnalisés provenant de styles.scss -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Nous n'aurons pas besoin de normalize.css, car il existe des styles
+    qui font la même chose dans Bootstrap (voir fichier _reboot.scss) -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Quiz | Accueil</title>
+</head>
+
+<body class="container" id="top">
+    <header class="py-3">
+        <nav class="navbar navbar-style-combine" aria-label="Light offcanvas navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="images/Logo-05B-dev-web-client.png" alt="Logo du site">
+                    <h1 class="visually-hidden">Site de Quiz</h1>
+                </a>
+                <button class="navbar-toggler btn-style-combine" id="consulter-reponses" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight"
+                    aria-label="Toggle navigation" disabled>Consulter mes
+                    réponses></button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbarLight">
+                    <div class="offcanvas-header">
+                        <h2 class="offcanvas-title fw-bold" id="#offcanvasNavbarLightLabel">Mes réponses</h2>
+                    </div>
+                    <div class="offcanvas-body"></div>
+                    <h4 id="scoreBonneReponse" class="m-2">0/0</h4>
+                    <h4 id="score" class="m-2">0</h4>
+                    <div class="progress m-2">
+                        <div id="progressionScore" class="progress-bar"></div>
+                    </div>
+                    <div class="d-flex justify-content-center mb-3">
+                        <button type="button" id="btnTelecharger" class="btn btn-primary">Télécharger mes réponses</button>
+                    </div>
+                    <div id="formulaireOffCanvas">
+    
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="heroes-style-combine heroes-bg-image">
+            <div class="mask hero-content">
+                <div class="d-flex justify-content-lg-start">
+                    <div class="hero-text">
+                        <h2>05B | Développement Web côté client</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="mt-5 mb-3"> Questionnaire formatif</h2>
+        <section id="filtre">
+            <h4 class="fst-italic">Filtres</h4>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h4 class="accordion-header">
+                        <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                            aria-controls="collapseThree">
+                            <span class="fst-italic">Options de filtres</span>
+                        </button>
+                    </h4>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <form id="form-filtre" novalidate>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>Description</h4>
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">Mot-clé</label>
+                                            <input type="text" class="form-control border-dark" name="description"
+                                                id="description" aria-label="description">
+                                        </div>
+                                        <h4>Modules</h4>
+                                        <div class="mb-3" id="divModules">
+                                            <label for="lstModule" class="form-label">Choix du module</label>
+                                            <select class="form-select" id="lstModule" name="lstModule"
+                                                aria-label="Default select example">
+                                                <option value="Choisir un module">Choisir un module</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <legend>
+                                                <h4>Catégories</h4>
+                                            </legend>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-check mb-3 mt-4">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            name="categorie[]" value="html" id="html">
+                                                        <label class="form-check-label" for="html">
+                                                            HTML
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            name="categorie[]" value="css" id="css">
+                                                        <label class="form-check-label" for="css">
+                                                            CSS
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            name="categorie[]" value="bootstrap" id="bootstrap">
+                                                        <label class="form-check-label" for="bootstrap">
+                                                            Bootstrap
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-check mb-3 mt-4">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            name="categorie[]" value="javaScript" id="javaScript">
+                                                        <label class="form-check-label" for="javaScript">
+                                                            JavaScript
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check mb-3">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            name="categorie[]" value="formulaire" id="formulaire">
+                                                        <label class="form-check-label" for="formulaire">
+                                                            Formulaire
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            name="categorie[]" value="accessibilitWeb"
+                                                            id="accessibilitWeb">
+                                                        <label class="form-check-label" for="accessibilitWeb">
+                                                            Accessibilité Web
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button type="reset" id="btn-reset" class="btn btn-secondary mt-3">Tout
+                                                    afficher</button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn btn-primary mt-3"
+                                                    id="btn-filter">Filtrer</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="creation-questionnaire">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="fst-italic">Création du questionnaire</h4>
+                            <p>
+                                Après avoir utilisé les filtres, cliquer sur le bouton créer le test.
+                            </p>
+                            <p>
+                                Si vous ne filtrez pas, le test sera basé sur tous les modules.
+                            </p>
+                            <form id="form-creer-questionnaire" novalidate>
+                                <div class="row">
+                                    <div class="col-md-12" id="divCreationQuestion">
+                                        <label for="nbQuestion" class="form-label">Nombre de questions : </label>
+                                        <input type="number" min="1" class="form-control ms-2 w-25 border-dark"
+                                            name="nbQuestion" id="nbQuestion" aria-label="nbQuestion"
+                                            placeholder="1">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-success mt-3 w-100">Créer le test</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="modules-theorique">
+            <h2 class="mt-5 mb-2">Modules théoriques</h2>
+            <div class="row">
+            </div>
+        </section>
+        <section id="questionnaire" class="mt-2 p-3">
+            <div class="row jumbotron">
+                <h2>Questionnaire</h2>
+                <div class="col-md-12 w-100">
+                    <form id="formQuestions" novalidate>
+                        <div class="card p-4">
+
+                        </div>
+                        <div class="mt-2 d-flex justify-content-end">
+                            <button type="submit" id="btn-reponse" class="btn btn-primary" disabled>
+                                Valider et passer à la question suivante >
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div id="contenu-popover" class="d-none">
+            <p>Pour consulter vos réponses cliquer sur le bouton<a href='#top'> Mes réponses</a> dans l'entête de cette page</p>
+        </div>
+
+        <!-- Contenu du Toast -->
+        <div class="position-fixed bottom-0 start-50 translate-middle-x mb-3">
+            <div id="toast-exemple" class="toast bg-primary text-white" role="alert" aria-live="assertive"
+                aria-atomic="true">
+                <div class="toast-header">
+                    <img src="images/Logo-05B-dev-web-client.png"  alt="Logo du site">
+                    <strong class="me-auto"></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer class="footer style-footer-combine">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="ps-5 m-auto">
+                    05B | Développement Web côté client
+                </p>
+            </div>
+            <div class="col-md-6">
+                <p class="m-auto">
+                    @copyright 2024 - KOUYATE Amadou | PIERRE Marie Wideline - Tous droits réservés
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- LIENS VERS LE FICHIER DE DONNÉE -->
+    <script src="js/data-quiz.js"></script>
+
+
+    <!--LIEN VERS NOTRE FICHIER SCRIPT PRINCIPAL-->
+    <script src="js/javascript-etu2.js"></script>
+    <script src="js/javascript-etu1.js"></script>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
